@@ -1,0 +1,121 @@
+-- Table structure for table `zipcodes`
+CREATE TABLE IF NOT EXISTS `zipcode` (
+    `ZIPCODE` varchar(10) NOT NULL,
+    `CITY` varchar(50) NOT NULL,
+    `STATE` varchar(2) NOT NULL,
+    PRIMARY KEY (`ZIPCODE`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `zipcodes`
+
+INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('99236', 'South San Francisco', 'CA');
+
+-- Table structure for table `facility`
+
+CREATE TABLE IF NOT EXISTS `facility` (
+    `FACILITY_ID` INT(10) NOT NULL AUTO_INCREMENT,
+    `FACILIITY_NAME` varchar(20) NOT NULL,
+    `FACILITIY_ADDRESS` varchar(60) NOT NULL,
+    `ZIPCODE` varchar(10) NOT NULL,
+    `FACILITY_PHONE` char(12),
+    `FACILITY_EMAIL` varchar(50),
+     PRIMARY KEY (`FACILITY_ID`),
+     FOREIGN KEY (`ZIPCODE`) REFERENCES `zipcodes`(`ZIPCODE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+-- test insert into table `facility`
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US WEST FACILITY’, '2011 Interiors Blvd', '99236', '515.123.4567', ‘uswest@mediship.com');
+
+-- Table structure for table `vendor` 
+CREATE TABLE IF NOT EXISTS `vendor` (
+    `VENDOR_ID` int(10) NOT NULL AUTO_INCREMENT,
+    `VENDOR_NAME` varchar(20) NOT NULL,
+    `VENDOR_ADDRESS` varchar(60) NOT NULL,
+    `ZIPCODE` varchar(10) NOT NULL,
+    `VENDOR_PHONE` char(12),
+    `VENDOR_EMAIL` varchar(50),
+    PRIMARY KEY (`VENDOR_ID`),
+    FOREIGN KEY (`ZIPCODE`) REFERENCES `zipcodes`(`ZIPCODE`)
+)  ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `vendor`
+INSERT INTO `vendor` (`VENDOR_NAME`, `VENDOR_ADDRESS`, `ZIPCODE`, `VENDOR_PHONE`,  `VENDOR_EMAIL`) VALUES ('ACME MEDICAL', '2344 Davis Pkwy', '99236', '515.442.2345', 'sales@acmemedical.net');
+-- Table structure for table `product`
+CREATE TABLE IF NOT EXISTS `product` (
+    `PRODUCT_ID` int(10) NOT NULL AUTO_INCREMENT,
+    `PRODUCT_NAME` varchar(40) NOT NULL,
+    `PRODUCT_COST` float NOT NULL,
+    `VENDOR_ID` int(10) NOT NULL,
+    PRIMARY KEY (`PRODUCT_ID`),
+    FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor`(`VENDOR_ID`)
+)  ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `product`
+
+INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES (‘syringe', '2.50’, ‘1’);
+
+-- Table structure for table `inventory`
+CREATE TABLE IF NOT EXISTS `inventory` (
+    `PRODUCT_ID` int(10) NOT NULL,
+    `FACILITY_ID` int(10) NOT NULL,
+    `DATE_RECEIVED` DATE,
+    `QUANTITY` int(10) NOT NULL,
+    PRIMARY KEY (`PRODUCT_ID`, `FACILITY_ID`),
+    FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product`(`PRODUCT_ID`),
+    FOREIGN KEY (`FACILITY_ID`) REFERENCES `facility`(` FACILITY_ID`)
+)   ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `inventory`
+INSERT INTO `inventory` (`PRODUCT_ID`, `FACILITY_ID`, `DATE_RECEIVED`, `QUANTITY`) VALUES ('1', '1', '2021-01-13', '200');
+
+-- Table structure for table `shipment`
+CREATE TABLE IF NOT EXISTS `shipment` (
+    `SHIP_ID` int(10) NOT NULL AUTO_INCREMENT,
+    `SHIP_DATE` DATE NOT NULL,
+    `FACILITY_ID` int(10) NOT NULL,
+    PRIMARY KEY (`SHIP_ID`),
+    FOREIGN KEY (`FACILITY_ID`) REFERENCES `facility`(` FACILITY_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `shipment`
+INSERT INTO `shipment` (`SHIP_DATE`, `FACILITY_ID`) VALUES ('2021-01-05', '1');
+
+-- Table structure for table `order`
+CREATE TABLE IF NOT EXISTS `order` (
+    `ORDER_ID` int(10) NOT NULL AUTO_INCREMENT,
+    `ORDER_DATE` DATE NOT NULL,
+    `TOTAL_COST` float,
+    `VENDOR_ID` int(10) NOT NULL,
+    `SHIP_ID` int(10) NOT NULL,
+    PRIMARY KEY (`ORDER_ID),
+    FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor`(`VENDOR_ID`)
+    FOREIGN KEY (`SHIP_ID`) REFERENCES `shipment`(`SHIP_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+-- test insert into table `order`
+INSERT INTO `order` (`ORDER_DATE`, `TOTAL_COST`, `VENDOR_ID`, `SHIP_ID`) VALUES ('2021-01-05', 400.00, 1, 1);
+
+-- Table structure for table `order_line`
+CREATE TABLE IF NOT EXISTS `order_line` (
+    `ORDER_ID` int(10) NOT NULL,
+    `PRODUCT_ID` int(10) NOT NULL,
+    `LINE_QUANTITY` int(4) NOT NULL,
+    PRIMARY KEY (`ORDER_ID`, `PRODUCT_ID`),
+    FOREIGN KEY (`ORDER_ID`) REFERENCES `order`(`ORDER_ID`),
+    FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product`(`PRODUCT_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `order_line`
+INSERT INTO `order_line` (`ORDER_ID`, `PRODUCT_ID`, `LINE_QUANTITY`) VALUES ('1','1','160');
+
+
+-- Table structure for table `login`
+CREATE TABLE IF NOT EXISTS `login` (
+    `USER` varchar(20) NOT NULL,
+    `PASSWORD` varchar(20) NOT NULL,
+    `MANAGER` boolean NOT NULL,
+    PRIMARY KEY (`USER`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- test insert into table `login`
+INSERT INTO `login` (`USER`, `PASSWORD`, `MANAGER`) VALUES ('testaccount','hello-world', false);
