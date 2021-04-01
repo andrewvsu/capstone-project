@@ -111,11 +111,12 @@ INSERT INTO `order_line` (`ORDER_ID`, `PRODUCT_ID`, `LINE_QUANTITY`) VALUES ('1'
 
 -- Table structure for table `login`
 CREATE TABLE IF NOT EXISTS `login` (
-    `USER` varchar(20) NOT NULL,
+    `USER_ID` INT NOT NULL AUTO_INCREMENT,
+    `USER` varchar(20) NOT NULL UNIQUE,
     `PASSWORD` varchar(20) NOT NULL,
     `MANAGER` boolean NOT NULL,
-    PRIMARY KEY (`USER`)
+    PRIMARY KEY (`USER_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- test insert into table `login`
-INSERT INTO `login` (`USER`, `PASSWORD`, `MANAGER`) VALUES ('testaccount','hello-world', false);
+INSERT INTO `login` (`USER`, `PASSWORD`, `MANAGER`) VALUES ('TestAccount','hello-world', false);
