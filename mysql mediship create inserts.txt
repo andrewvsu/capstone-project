@@ -109,14 +109,10 @@ CREATE TABLE IF NOT EXISTS `order_line` (
 INSERT INTO `order_line` (`ORDER_ID`, `PRODUCT_ID`, `LINE_QUANTITY`) VALUES ('1','1','160');
 
 
--- Table structure for table `login`
-CREATE TABLE IF NOT EXISTS `login` (
-    `USER_ID` INT NOT NULL AUTO_INCREMENT,
-    `USER` varchar(20) NOT NULL UNIQUE,
-    `PASSWORD` varchar(20) NOT NULL,
-    `MANAGER` boolean NOT NULL,
-    PRIMARY KEY (`USER_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
--- test insert into table `login`
-INSERT INTO `login` (`USER`, `PASSWORD`, `MANAGER`) VALUES ('TestAccount','hello-world', false);
