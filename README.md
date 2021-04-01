@@ -18,7 +18,7 @@ This is my capstone project for CSIS484 at Liberty University.  It is a SCM web 
 - Mediship IT Staff for Auditing
 
 ## Functions
-This web application is an inventory management system that searches and displays inventory based on which facility they are located in throughout the continental United States and Canada
+This web application is an inventory management system that searches and displays inventory based on which facility they are located in throughout the continental United States and Canada. The use cases of this capstone project add new products, update product records, remove product records and modify product records.
 
 ---
 
