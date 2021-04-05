@@ -139,8 +139,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-12">
               <h1>Mediship Company Intranet</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, deleniti, ea nisi suscipit atque tempore aspernatur harum unde veritatis neque rem dolores assumenda. Recusandae facilis dolores cum iste assumenda accusamus.</p>
-                <p><a class="btn btn-primary btn-lg" id="Mybtn" href="#" role="button">Employee Sign In</a></p>
-              <div class="col-md-6 offset-md-3 login-form offset-xl-4 col-xl-4" id="MyForm">
+                
+              <div class="col-md-6 offset-md-3 login-form offset-xl-4 col-xl-4" >
 
                 <?php 
         if(!empty($login_err)){
