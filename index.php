@@ -133,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
     </nav>
     <section>
-      <div class="jumbotron text-center mt-2">
+      <div class="jumbotron text-center">
         <div class="container">
           <div class="row">
             <div class="col-12">
