@@ -1,6 +1,6 @@
 <?php
 
-  function display_results_table($query) {
+  function display_results($query) {
     // retrieve all the fields as an array
     $fields = mysqli_fetch_fields($query);
 
