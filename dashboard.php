@@ -3,7 +3,7 @@
 session_start();
 
 // Include config file
-require_once "../cgi/db.php";
+require "../cgi/db.php";
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -79,38 +79,57 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
        <div class="container">
         <h3 class="accordion">Query Product in Inventory</h3>
+        
         <div class="panel">
+        <form action="" method="post">
           <p>Search for product within Mediship Inventory</p>
-          <div class="form-row">
-            <div class="form-group col-md-12">
+          <div class="row d-flex align-items-end">
+          
+            <div class="col-md-10">
               <label for="inputQueryProduct">Product Name or Product ID</label>
-              <input type="text" class="form-control" id="inputQueryProduct" placeholder="Product Name or ID">
+              <input type="text" class="form-control" id="inputQueryProduct" name="query" placeholder="Product Name or ID">
+              </div>
+            <div class="col-md-2">
+            <button type="submit" id="search" class="btn btn-primary">Search</button>
+            <input type="hidden" name="doSearch" value ='1'>
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
+            
           </div>
- 
+          </form>
+          <div id=result-div>
+            
+            <?php
+            
+              include 'search.php';
+            
+            ?>
+          </div>
         </div>
         <h3 class="accordion">Add New Product from Vendor</h3>
         <div class="panel">
+        <form action="dashboard.php" method="post">
           <p>Add a new product record with all required fields in Inventory</p>
-          <div class="form-row">
-            <div class="form-group col-md-12">
+          <div class="row d-flex align-items-end">
+          
+            <div class="col-md-12">
               <label for="inputProductName">Product Name</label>
               <input type="text" class="form-control" id="inputProductName" placeholder="Product Name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
+              </div>
+              <div class="col-md-6">
               <label for="inputCostPerProduct">Product Cost Per Unit</label>
               <input type="text" class="form-control" id="inputCostPerProduct" placeholder="Cost Per Unit">
             </div>
-            <div class="form-group col-md-6">
+            <div class="col-md-6">
               <label for="inputVendorID">Vendor ID</label>
               <input type="text" class="form-control" id="inputVendorID" placeholder="Vendor ID">
             </div>
             <button type="submit" class="btn btn-primary">Add Product</button>
+            
           </div>
-          
+          </form>
+          <div class="row invisible">
+            <p>No Results Found</p>
+          </div>
         </div>
         <h3 class="accordion">Delete Product from Inventory</h3>
         <div class="panel">
@@ -131,8 +150,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           Ship product to a Mediship facility
           </p>
             <div class="form-group col-md-12">
-              <label for="inputQueryProduct">Product Name or Product ID</label>
-              <input type="text" class="form-control" id="inputQueryProduct" placeholder="Product Name or ID">
+              <label for="queryProduct">Product Name or Product ID</label>
+              <input type="text" class="form-control" id="queryProduct" placeholder="Product Name or ID">
             </div>
             <div class="form-group col-md-12">
               <label for="inputFacilityID">Facility Location</label>

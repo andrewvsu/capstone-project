@@ -28,3 +28,7 @@ h3.active, .accordion:hover {
   transition: max-height 0.2s ease-out;
   margin-bottom: 1.2em;
 }
+
+.bold {
+  font-weight: bold;
+}
