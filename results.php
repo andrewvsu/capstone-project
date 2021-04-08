@@ -2,7 +2,7 @@
 
 
 
-include "display_results_table.php";
+include "display_results.php";
 
   
   $sql = "SELECT product.PRODUCT_ID,
@@ -27,4 +27,4 @@ include "display_results_table.php";
 //   echo "0 results";
 // }
 
-   echo display_results_table($result);
+   echo display_results($result);
