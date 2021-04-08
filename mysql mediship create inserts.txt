@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- test insert into table `product`
 
 INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES (‘syringe', '2.50’, ‘1’);
+INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES ('iv needle', '1.50', '1');
+INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES ('foley bag', '5.00', '1');
 
 -- Table structure for table `inventory`
 CREATE TABLE IF NOT EXISTS `inventory` (
