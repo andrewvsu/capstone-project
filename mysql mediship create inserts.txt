@@ -9,6 +9,10 @@ CREATE TABLE IF NOT EXISTS `zipcode` (
 -- test insert into table `zipcodes`
 
 INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('99236', 'South San Francisco', 'CA');
+INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('86011', 'Flagstaff', 'AZ');
+INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('98133', 'Seattle', 'WA');
+
+
 
 -- Table structure for table `facility`
 
@@ -23,7 +27,9 @@ CREATE TABLE IF NOT EXISTS `facility` (
      FOREIGN KEY (`ZIPCODE`) REFERENCES `zipcodes`(`ZIPCODE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 -- test insert into table `facility`
-INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US WEST FACILITY’, '2011 Interiors Blvd', '99236', '515.123.4567', ‘uswest@mediship.com');
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US WEST FACILITY’, '2011 Interiors Blvd', '99236', '515.123.4567', 'uswest@mediship.com');
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US HQ FACILITY’, '3412 Mediship Lane', '86011', '555.234.5476', 'corporatehq@mediship.com');
+
 
 -- Table structure for table `vendor` 
 CREATE TABLE IF NOT EXISTS `vendor` (
@@ -39,6 +45,8 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 
 -- test insert into table `vendor`
 INSERT INTO `vendor` (`VENDOR_NAME`, `VENDOR_ADDRESS`, `ZIPCODE`, `VENDOR_PHONE`,  `VENDOR_EMAIL`) VALUES ('ACME MEDICAL', '2344 Davis Pkwy', '99236', '515.442.2345', 'sales@acmemedical.net');
+INSERT INTO `vendor` (`VENDOR_NAME`, `VENDOR_ADDRESS`, `ZIPCODE`, `VENDOR_PHONE`,  `VENDOR_EMAIL`) VALUES ('DAVIS SUPPLY CO.', '4452 Henry Johnson Way', '98133', '554-223-5521', 'sales@davissupply.com');
+
 -- Table structure for table `product`
 CREATE TABLE IF NOT EXISTS `product` (
     `PRODUCT_ID` int(10) NOT NULL AUTO_INCREMENT,

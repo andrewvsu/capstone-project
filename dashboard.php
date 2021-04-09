@@ -120,14 +120,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <input type="text" class="form-control" id="inputCostPerProduct" placeholder="Cost Per Unit" required>
             </div>
             <div class="col-md-4">
-              <label for="inputVendorID">Vendor ID</label>
-              <input type="text" class="form-control" id="inputVendorID" placeholder="Vendor ID" required>
+              <label for="inputVendor">Vendor:</label>
+              <select name="inputVendor" id="inputVendor">
+              <?php
+                include "dynamic_dropdown.php";
+              ?></select>
             </div>
             <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Add Product</button></div>
-            
+            <input type="hidden" name="addProduct" value='1'>
           </div>
           </form>
+          <?php
+              
+              if ($_POST['addProduct']==1) {
+                include 'add.php';
+              }
+          ?>
           <div class="row invisible">
             <p>No Results Found</p>
           </div>
@@ -168,7 +177,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
        <hr>
-       <footer class="text-center footer fixed-bottom">
+       <footer class="text-center footer">
         <div class="container">
           <div class="row">
             <div class="col-12">
