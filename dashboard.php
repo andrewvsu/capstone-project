@@ -81,22 +81,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h3 class="accordion">Query Product in Inventory</h3>
         
         <div class="panel">
-        <form action="" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <p>Search for product within Mediship Inventory</p>
           <div class="row d-flex align-items-end">
           
             <div class="col-md-10">
               <label for="inputQueryProduct">Product Name or Product ID</label>
-              <input type="text" class="form-control" id="inputQueryProduct" name="query" placeholder="Product Name or ID">
+              <input type="text" class="form-control" id="inputQueryProduct" name="query" placeholder="Product Name or ID" required>
               </div>
             <div class="col-md-2">
-            <button type="submit" id="search" class="btn btn-primary">Search</button>
+            <button type="submit" id="searchBtn" class="btn btn-primary" >Search</button>
             <input type="hidden" name="doSearch" value ='1'>
             </div>
             
           </div>
           </form>
-          <div id=result-div>
+          <div class="pt-4"id=result-div>
             
             <?php
             
@@ -107,23 +107,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <h3 class="accordion">Add New Product from Vendor</h3>
         <div class="panel">
-        <form action="dashboard.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <p>Add a new product record with all required fields in Inventory</p>
           <div class="row d-flex align-items-end">
           
             <div class="col-md-12">
               <label for="inputProductName">Product Name</label>
-              <input type="text" class="form-control" id="inputProductName" placeholder="Product Name">
+              <input type="text" class="form-control" id="inputProductName" placeholder="Product Name" required>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
               <label for="inputCostPerProduct">Product Cost Per Unit</label>
-              <input type="text" class="form-control" id="inputCostPerProduct" placeholder="Cost Per Unit">
+              <input type="text" class="form-control" id="inputCostPerProduct" placeholder="Cost Per Unit" required>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <label for="inputVendorID">Vendor ID</label>
-              <input type="text" class="form-control" id="inputVendorID" placeholder="Vendor ID">
+              <input type="text" class="form-control" id="inputVendorID" placeholder="Vendor ID" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add Product</button>
+            <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Add Product</button></div>
             
           </div>
           </form>
@@ -133,6 +134,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <h3 class="accordion">Delete Product from Inventory</h3>
         <div class="panel">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <p>
           Delete a discontinued product from Inventory
           </p>
@@ -143,9 +145,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <button type="submit" class="btn btn-danger">Delete</button>
           </div>
+          </form>
         </div>
         <h3 class="accordion">Ship Product</h3>
         <div class="panel">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <p>
           Ship product to a Mediship facility
           </p>
@@ -158,12 +162,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <input type="text" class="form-control" id="inputFacilityID" placeholder="Facility Name or ID">
             </div>
             <button type="submit" class="btn btn-success">Ship to facility</button>
+        </form>
       </div>
        
 
 
        <hr>
-       <footer class="text-center">
+       <footer class="text-center footer fixed-bottom">
         <div class="container">
           <div class="row">
             <div class="col-12">

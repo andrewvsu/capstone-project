@@ -22,7 +22,7 @@
 
       $data_rows .= '</div>';
     }
-
-    return '<div class="row "> ' . $header_row . '</div>' . $data_rows . '<hr>';
+    
+    return '<div class="row"><h5><span class="text-center">Search Results</span></h5></div>'.'<div class="row "> ' . $header_row . '</div>' . $data_rows . '<hr>';
     
   }

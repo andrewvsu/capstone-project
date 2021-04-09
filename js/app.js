@@ -7,7 +7,10 @@ $(document).ready(function () {
   });
 });
 
-
+$('#searchBtn').submit(function (e) {
+  $('#searchBtn').parent().parent().parent().prev().addClass("active");
+  e.preventDefault();
+});
 //accordion function for clerk/manager business requirements
 var acc = document.getElementsByClassName("accordion");
 var i;

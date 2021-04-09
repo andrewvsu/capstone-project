@@ -244,7 +244,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
     </div>
     <hr>
-    <footer class="text-center">
+    <footer class="text-center footer fixed-bottom">
       <div class="container">
         <div class="row">
           <div class="col-12">
