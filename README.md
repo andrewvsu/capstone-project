@@ -3,7 +3,7 @@ This is my capstone project for CSIS484 at Liberty University.  It is a SCM web 
 
 ![code jQuery build](https://img.shields.io/badge/build-jQuery-brightgreen)
 ![code JavaScript build](https://img.shields.io/badge/build-JavaScript-brightgreen)
-![PHP](https://img.shields.io/badge/build-PHP-yellowgreen)
+![PHP](https://img.shields.io/badge/build-PHP-purple)
 ![CSS3](https://img.shields.io/badge/build-CSS3-yellowgreen)
 ![HTML5](https://img.shields.io/badge/build-HTML5-yellowgreen)
 ![Chrome](https://img.shields.io/badge/Chrome-compatable-green)
