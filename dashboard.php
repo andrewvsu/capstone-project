@@ -111,36 +111,56 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <p>Add a new product record with all required fields in Inventory</p>
           <div class="row d-flex align-items-end">
           
-            <div class="col-md-12">
+            <div class="col-md-4">
               <label for="inputProductName">Product Name</label>
-              <input type="text" class="form-control" id="inputProductName" placeholder="Product Name" required>
+              <input type="text" class="form-control" id="inputProductName" placeholder="Product Name" name="product"required>
               </div>
+
               <div class="col-md-4">
               <label for="inputCostPerProduct">Product Cost Per Unit</label>
-              <input type="text" class="form-control" id="inputCostPerProduct" placeholder="Cost Per Unit" required>
+              <input type="text" class="form-control" id="inputCostPerProduct" name="cost" placeholder="Cost Per Unit" required>
             </div>
             <div class="col-md-4">
               <label for="inputVendor">Vendor:</label>
-              <select name="inputVendor" id="inputVendor">
+              <select class="form-control" name="inputVendor" id="inputVendor">
               <?php
-                include "dynamic_dropdown.php";
+                include "dynamic_vendor.php";
               ?></select>
             </div>
-            <div class="col-md-4">
-            <button type="submit" class="btn btn-primary">Add Product</button></div>
-            <input type="hidden" name="addProduct" value='1'>
           </div>
-          </form>
-          <?php
-              
-              if ($_POST['addProduct']==1) {
-                include 'add.php';
-              }
-          ?>
-          <div class="row invisible">
-            <p>No Results Found</p>
+          <div class="row d-flex align-items-end">
+            <div class="col-md-4">
+              <label for="count">Quantity:</label>
+              <input type="number" name="count" id="count" placeholder='Quantity' class="form-control">
+            </div>
+            <div class="col-md-4">
+            <label for="inputFacility">Facility:</label>
+              <select class="form-control" name="inputFacility" id="inputFacility">
+                <?php
+                  include 'dynamic_facility.php';
+                ?>
+              <!-- <option value='1'>US WEST FACILITY</option>
+              <option value='2'>US HQ FACILITY</option> -->
+              </select>
+              </div>
+          
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Add Product</button>
+                <input type="hidden" name="addProduct" value='1'>
+              </div>
+                
           </div>
         </div>
+          
+          </form>
+          <div>
+            <?php
+              include 'insert.php';
+            ?>
+          </div>
+          
+          
+        
         <h3 class="accordion">Delete Product from Inventory</h3>
         <div class="panel">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -173,7 +193,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <button type="submit" class="btn btn-success">Ship to facility</button>
         </form>
       </div>
-       
+      </div>
 
 
        <hr>

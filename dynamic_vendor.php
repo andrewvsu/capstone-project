@@ -1,7 +1,7 @@
 <?php
 
 
-  $sql = "SELECT VENDOR_NAME FROM vendor;";
+  $sql = "SELECT VENDOR_NAME,VENDOR_ID FROM vendor;";
   $result = mysqli_query($link,$sql);
 
   while ($row = mysqli_fetch_array($result)) {
@@ -9,7 +9,8 @@
   }
 
   foreach ($rows as $row) {
-  echo "<option value='" .$row['VENDOR_NAME']. "'>".$row['VENDOR_NAME'] . "</option>";
+  echo "<option value='" .$row['VENDOR_ID']. "'>".$row['VENDOR_NAME'] . "</option>";
   }
 
+  
 ?>
