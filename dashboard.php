@@ -173,6 +173,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <input type="text" class="form-control" id="inputDeleteProduct" placeholder="Product Name or ID">
             </div>
             <button type="submit" class="btn btn-danger">Delete</button>
+            <input type="hidden" name="delProduct" value='1'>
           </div>
           </form>
         </div>
