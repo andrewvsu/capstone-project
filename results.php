@@ -16,5 +16,11 @@ include "display_results.php";
         WHERE (product.PRODUCT_ID LIKE '%${query}%') OR (product.PRODUCT_NAME LIKE '%${query}%');";
 
   $result = mysqli_query($link, $sql);
-
-   echo display_results($result);
+  if (mysqli_num_rows($result)!= 0) {
+    echo display_results($result);
+  } else {
+    echo '<p class="bold">No Results Found</p>';
+  }
+  
+  
+   

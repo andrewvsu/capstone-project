@@ -96,7 +96,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             
           </div>
           </form>
-          <div class="pt-4"id=result-div>
+          <div class="pt-4"id="result-div">
             
             <?php
             
@@ -150,14 +150,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </div>
                 
           </div>
-        </div>
-          
           </form>
-          <div>
+          <div class="pt-4">
             <?php
               include 'insert.php';
             ?>
           </div>
+        </div>
+          
+          
+          
           
           
         
@@ -176,6 +178,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <input type="hidden" name="delProduct" value='1'>
           </div>
           </form>
+
         </div>
         <h3 class="accordion">Ship Product</h3>
         <div class="panel">
@@ -192,6 +195,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <input type="text" class="form-control" id="inputFacilityID" placeholder="Facility Name or ID">
             </div>
             <button type="submit" class="btn btn-success">Ship to facility</button>
+            
         </form>
       </div>
       </div>
