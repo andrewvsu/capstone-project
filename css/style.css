@@ -1,5 +1,16 @@
 
+.hero-image {
 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/jonathan-borba-Sq3tHw0y2qE-unsplash.jpg");
+  
+  height: 100%;
+  filter: grayscale(1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+  }
 
 
 

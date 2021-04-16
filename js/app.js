@@ -5,13 +5,23 @@ $(document).ready(function () {
     $('#MyForm').show(500);
     $('#Mybtn').hide(500);
   });
+  //accordion function for clerk/manager business requirements
+  $('#searchBtn').submit(function (e) {
+    $('#searchBtn').parent().parent().parent().prev().addClass("active");
+    e.preventDefault();
+  });
+
+
 });
 
-$('#searchBtn').submit(function (e) {
-  $('#searchBtn').parent().parent().parent().prev().addClass("active");
-  e.preventDefault();
-});
-//accordion function for clerk/manager business requirements
+function delPrompt() {
+  var response = confirm("Deletion cannont be undone. Press OK to confirm.");
+
+  if (response == true) {
+    document.querySelector("#delProduct").value = '1';
+  }
+}
+
 var acc = document.getElementsByClassName("accordion");
 var i;
 

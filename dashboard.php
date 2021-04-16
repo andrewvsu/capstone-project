@@ -25,6 +25,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css"
     crossorigin="anonymous" />
+    
     <link rel="stylesheet" href="./css/style.css">
 
 
@@ -169,16 +170,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <p>
           Delete a discontinued product from Inventory
           </p>
-          <div class="form-row">
-            <div class="form-group col-md-12">
-              <label for="inputDeleteProduct">Product Name or Product ID</label>
-              <input type="text" class="form-control" id="inputDeleteProduct" placeholder="Product Name or ID">
+          
+          <div class="row d-flex align-items-end">
+            <div class="col-md-10">
+              <label for="delete">Product Name or Product ID</label>
+              <input type="text" class="form-control" id="delete"  name="delete" placeholder="Product Name or ID">
             </div>
-            <button type="submit" class="btn btn-danger">Delete</button>
-            <input type="hidden" name="delProduct" value='1'>
+            <div class="col-md-2">
+            <button type="submit" class="btn btn-danger" onclick="delPrompt()">Delete</button>
+            <input type="hidden" name="delProduct" id="delProduct" value='0'>
+            </div>
           </div>
           </form>
-
+          <div class="pt-4">
+            <?php
+              include 'del.php';
+            ?>
+          </div>
         </div>
         <h3 class="accordion">Ship Product</h3>
         <div class="panel">
@@ -219,6 +227,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
   integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
   <script src="./js/app.js"></script>
     
 

@@ -17,10 +17,10 @@
       $data_rows .= '<div class="row data-rows">';
 
       foreach ($fields as $field) {
-        $data_rows .= '<div class="col-md-2 data-rows-inside">' . $record[$field->name] . '</div>';
+        $data_rows .= '<div class="col-md-2 data-rows-inside">' . $record[$field->name] . '</div >';
       }
 
-      $data_rows .= '</div>';
+      $data_rows .= '<div class="col-md-2" id="'. $record['PRODUCT_ID'] . '"></div></div>';
     }
     
     return '<div class="row"><h5><span class="text-center">Search Results</span></h5></div>'.'<div class="row "> ' . $header_row . '</div>' . $data_rows . '<hr>';

@@ -22,5 +22,6 @@ include "display_results.php";
     echo '<p class="bold">No Results Found</p>';
   }
   
+ 
   
    
