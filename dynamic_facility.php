@@ -2,14 +2,14 @@
 
 
   $sql = "SELECT FACILIITY_NAME,FACILITY_ID FROM facility;";
-  $result = mysqli_query($link,$sql);
+  $results = mysqli_query($link,$sql);
  
-  while ($row = mysqli_fetch_array($result)) {
-    $rows[] = $row;
+  while ($list = mysqli_fetch_array($results)) {
+    $lists[] = $list;
   }
 
-  foreach ($rows as $row) {
-  echo "<option value='" .$row['FACILITY_ID']. "'>".$row['FACILIITY_NAME'] . "</option>";
+  foreach ($lists as $list) {
+  echo "<option value='" .$list['FACILITY_ID']. "'>".$list['FACILIITY_NAME'] . "</option>";
   }
   
 ?>
