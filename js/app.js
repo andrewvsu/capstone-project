@@ -1,10 +1,7 @@
 
-// show/hide toggle for login
+
 $(document).ready(function () {
-  $('#Mybtn').click(function () {
-    $('#MyForm').show(500);
-    $('#Mybtn').hide(500);
-  });
+
   //accordion function for clerk/manager business requirements
   $('#searchBtn').submit(function (e) {
     $('#searchBtn').parent().parent().parent().prev().addClass("active");

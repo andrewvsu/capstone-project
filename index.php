@@ -160,7 +160,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-outline-light" value="Login">
             </div>
             <p><a href="reset-password.php">Forget Password? </a></p>
         </form>
@@ -222,7 +222,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
     </section>
 <hr>
-<hr>
+
     <div class="section">
       <div class="container">
         <div class="row">
@@ -248,6 +248,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="container">
         <div class="row">
           <div class="col-12">
+            
             <p>Copyright © Mediship. All rights reserved.</p>
           </div>
         </div>

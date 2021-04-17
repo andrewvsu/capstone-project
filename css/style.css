@@ -12,7 +12,9 @@
   color: white;
   }
 
-
+  .login-form a {
+    color:white;
+  }
 
 .accordion {
   background-color: #eee;
