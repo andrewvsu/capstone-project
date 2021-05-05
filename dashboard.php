@@ -140,8 +140,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <?php
                   include 'dynamic_facility.php';
                 ?>
-              <!-- <option value='1'>US WEST FACILITY</option>
-              <option value='2'>US HQ FACILITY</option> -->
               </select>
               </div>
           
@@ -194,17 +192,28 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <p>
           Ship product to a Mediship facility
           </p>
-            <div class="form-group col-md-12">
-              <label for="queryProduct">Product Name or Product ID</label>
-              <input type="text" class="form-control" id="queryProduct" placeholder="Product Name or ID">
+          <div class="row d-flex align-items-end">
+            <div class=" col-md-4">
+              <label for="shipProduct">Product ID</label>
+              <input type="text" class="form-control" id="shipProduct" name="shipProduct" placeholder="Product ID">
             </div>
-            <div class="form-group col-md-12">
-              <label for="inputFacilityID">Facility Location</label>
-              <input type="text" class="form-control" id="inputFacilityID" placeholder="Facility Name or ID">
+            <div class=" col-md-4">
+              <label for="shipFacilityID">Facility Location</label>
+              <input type="text" class="form-control" id="shipFacilityID" name="shipFacilityID" placeholder="Facility ID">
             </div>
+            <div class="col-md-4">
             <button type="submit" class="btn btn-success">Ship to facility</button>
-            
+            <input type="hidden" name="ship" value='1'>
+            </div>
         </form>
+        <div class="pt-4">
+            <?php
+            
+              include 'ship.php';
+            
+            ?>
+          </div>
+        </div>
       </div>
       </div>
 
@@ -223,6 +232,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"

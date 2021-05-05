@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `zipcode` (
 INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('99236', 'South San Francisco', 'CA');
 INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('86011', 'Flagstaff', 'AZ');
 INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('98133', 'Seattle', 'WA');
-
+INSERT INTO `zipcodes` (`ZIPCODE`, `CITY`, `STATE`) VALUES ('24502', 'Lynchburg', 'VA');
 
 
 -- Table structure for table `facility`
@@ -27,8 +27,9 @@ CREATE TABLE IF NOT EXISTS `facility` (
      FOREIGN KEY (`ZIPCODE`) REFERENCES `zipcodes`(`ZIPCODE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 -- test insert into table `facility`
-INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US WEST FACILITY’, '2011 Interiors Blvd', '99236', '515.123.4567', 'uswest@mediship.com');
-INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (‘US HQ FACILITY’, '3412 Mediship Lane', '86011', '555.234.5476', 'corporatehq@mediship.com');
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (ï¿½US WEST FACILITYï¿½, '2011 Interiors Blvd', '99236', '515.123.4567', 'uswest@mediship.com');
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES (ï¿½US HQ FACILITYï¿½, '3412 Mediship Lane', '86011', '555.234.5476', 'corporatehq@mediship.com');
+INSERT INTO `facility` (`FACILIITY_NAME`, `FACILITIY_ADDRESS`, `ZIPCODE`, `FACILITY_PHONE`,  `FACILITY_EMAIL`) VALUES ('US MID-ATLANTIC', '55243 7th Ave', '24502', '555.332.7789', 'usma@mediship.com');
 
 
 -- Table structure for table `vendor` 
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 -- test insert into table `product`
 
-INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES (‘syringe', '2.50’, ‘1’);
+INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES (ï¿½syringe', '2.50ï¿½, ï¿½1ï¿½);
 INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES ('iv needle', '1.50', '1');
 INSERT INTO `product` (`PRODUCT_NAME`, `PRODUCT_COST`, `VENDOR_ID`) VALUES ('foley bag', '5.00', '1');
 
